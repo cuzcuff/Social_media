@@ -6,7 +6,7 @@ const sessions = require('express-session');
 const uploads = multer({ dest: 'uploads/' }); // Set the destination folder for uploaded files
 const path = require('path');
 
-var fs = require(`fs`)
+const fs = require(`fs`)
 
 const pool = mysql.createPool({
   connectionLimit: 10000,
@@ -33,7 +33,7 @@ app.use(fileupload());
 // express app should use sessions
 const oneDay = 1000 * 60 * 60 * 24; // calculate one day
 app.use(sessions({
-  secret: "thisismysecrctekey",
+  secret: "thisismysecretkey",
   saveUninitialized:true,
   cookie: { maxAge: oneDay },
   resave: false 
@@ -231,9 +231,10 @@ app.get('/feed', (req, res) => {
       const brukernavn = req.session.brukernavn; // Get the logged-in username
       console.log("user: ", brukernavn)
       res.render('feed.ejs', { // Pass both 'images' and 'brukernavn' variables to the template
-        uploads: uploads, 
+        uploads: images, 
         brukernavn: brukernavn 
       }); 
     }
   });
 });
+
