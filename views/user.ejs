@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= bruker.brukernavn %> - Profil</title>
+    <style>
+      /* legg til stil for å gjøre siden mer presentabel */
+      body {
+        background-color: #f0f0f0;
+        font-family: Arial, sans-serif;
+      }
+      .profil {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 20px;
+      }
+      h1 {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      li {
+        margin-bottom: 10px;
+      }
+      label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+      .profilbilde {
+        width: 200px;
+        height: 200px;
+        background-size: cover;
+        background-position: center;
+        border-radius: 50%;
+        margin-bottom: 20px;
+      }
+      .biografi {
+        margin-top: 20px;
+        white-space: pre-line;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="profil">
+      <h1><%= bruker.brukernavn %></h1>
+      <div class="profilbilde" style="background-image: url('<%= bruker.profilbilde %>')"></div>
+      <ul>
+        <li>
+          <label>E-postadresse:</label>
+          <%= bruker.email %>
+        </li>
+        <li>
+          <label>Biografi:</label>
+          <div class="biografi"><%= bruker.biografi %></div>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
