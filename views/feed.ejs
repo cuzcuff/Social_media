@@ -52,10 +52,12 @@
 </form>
 
 <div class="feed">
-  <h2><a href="/user/<%= brukernavn %>"><%= brukernavn %></a></h2>
   <a href="/user/<%= brukernavn %>"><img class="profile-image" src="./images/profile.png"></a>
-  <% uploads.forEach((filename) => { %>
-    <img class="feed-image" src="./uploads/<%= filename %>">
+  <% uploads.forEach((item) => { %>
+    <div>
+      <img class="feed-image" src="./uploads/<%= item.bildenavn %>">
+      <p>Uploaded by: <%= item.eier_bilde %></p>
+    </div>
   <% }); %>
 </div>
 

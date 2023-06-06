@@ -191,7 +191,7 @@ app.post('/upload', (req, res) => {
 
   // Save the image name and the user in the database
   const imageName = image.name;
-  const user = req.body.user; // Assuming the user is sent as a field in the request body
+  const brukernavn = req.session.brukernavn;
 
   // Execute the SQL query to insert the data into the database
   const sql = 'INSERT INTO bilde (bildenavn, eier_bilde) VALUES (?, ?)';
@@ -201,7 +201,7 @@ app.post('/upload', (req, res) => {
       return res.sendStatus(500);
     }
 
-    connection.query(sql, [imageName, user], (error, results) => {
+    connection.query(sql, [imageName, brukernavn], (error, results) => {
       connection.release(); // Release the connection back to the pool
 
       if (error) {
