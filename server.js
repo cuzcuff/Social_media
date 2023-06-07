@@ -122,6 +122,21 @@ app.post('/login', function (req, res) {
 });
 
 
+// Assuming you're using Express.js
+app.get('/logout', (req, res) => {
+  // Clear the session or any authentication-related data
+  req.session.destroy((error) => {
+    if (error) {
+      console.error('Error logging out:', error);
+      res.status(500).send('Internal Server Error');
+    } else {
+      // Redirect the user to the login page or any desired page
+      res.redirect('/login');
+    }
+  });
+});
+
+
 
 // definer en rute for å vise profilen til en bruker
 app.get('/user/:brukernavn', (req, res) => {

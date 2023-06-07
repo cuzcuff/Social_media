@@ -48,6 +48,7 @@
   </head>
   <body>
     <div class="profil">
+      <a href="javascript:history.go(-1)">Go Back</a> <!-- Add this line to create the back link -->
       <h1><%= bruker.brukernavn %></h1>
       <div class="profilbilde" style="background-image: url('<%= bruker.profilbilde %>')"></div>
       <ul>
@@ -60,6 +61,7 @@
           <div class="biografi"><%= bruker.biografi %></div>
         </li>
       </ul>
+      <a href="/logout">Logout</a> <!-- Logout link -->
     </div>
   </body>
-</html>
+  </html>
