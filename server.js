@@ -27,7 +27,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static('public'));
+app.use(express.static('uploads'));
 var fileupload = require("express-fileupload");
 app.use(fileupload());
 // express app should use sessions
@@ -135,7 +135,6 @@ app.get('/logout', (req, res) => {
     }
   });
 });
-
 
 
 // definer en rute for å vise profilen til en bruker
